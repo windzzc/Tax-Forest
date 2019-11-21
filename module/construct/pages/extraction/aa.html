@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+   <head>
+       <meta charset="utf-8">
+   </head>
+   <body style="height: 100%; margin: 0">
+
+
+    <script src='https://d3js.org/d3.v3.min.js'></script>
+     
+
+    <script src='http://yotta.com/module/construct/plugins/jQuery/jquery-2.2.3.min.js'></script>
+
+
+<h2>D3.js Multi-Foci Force layout animated example (draggable)</h2>
+
+<div id="D3Chart" class="mt20"></div>
+
+
+
+
+
+
+<style>
+
+.node {
+  stroke-width: 1.5px;
+}
+.node:hover circle {
+  fill: grey !important;
+}
+
+text {
+  font: 18px 'Open Sans', sans-serif;
+  text-anchor: middle;
+  pointer-events: none;
+  fill: white;
+}
+circle {
+  fill: #ccc;
+  stroke: white ;
+  stroke-width: 2px;
+}
+
+
+
+
+
+
+
+</style>
+<script type="text/javascript">
+  
+var ip = "http://yotta.xjtushilei.com:8083";
+    var topic;
+    $.ajax({
+        type :"GET",
+        url :ip+"/topic/getTopicsByDomainName?domainName="+"初等数学",
+        datatype :"json",
+        async:false,
+        success : function(response,status){
+            topic = response["data"];
+            // console.log("topic个数："+topic.length);
+        }
+    });
+console.log(topic);
+
+$("#kaishi").click(function(){
+    if (topic != null) {
+        for(var i = 0; i < topic.length; i++){             
+            $("#li").append("<li class='list-group-item animated bounceInRight glyphicon glyphicon-tree-conifer '>" + topic[i].topicName + "</li>");
+        }
+    }
+})
+
+
+
+
+
+
+
+// GROUPS:  0 Web | 1: Adobe | 2: hybrid
+var ds = [
+{ "Label": "AngularJS", "Value": 250 },
+{ "Label": "HTML5", "Value": 450 },
+{ "Label": "Javascript", "Value": 350 },
+{ "Label": "PHP", "Value": 230 },
+{ "Label": "PHP", "Value": 230 },
+{ "Label": "jQuery", "Value": 350 },
+{ "Label": "AngularJS", "Value": 560 },
+{ "Label": "HTML5", "Value": 406 },
+{ "Label": "Javascript", "Value": 330 },
+{ "Label": "NodeJs", "Value": 310 },
+{ "Label": "D3.js", "Value": 140 },
+{ "Label": "CreateJS", "Value": 145 },
+{ "Label": "Cordova", "Value": 450 },
+{ "Label": "CSS", "Value": 430 },
+{ "Label": "SVG", "Value": 250 },
+{ "Label": "PHP", "Value": 120 },
+{ "Label": "jQuery", "Value": 30 }];
+
+
+var width = 900,
+height = 600;
+
+var min = d3.min(ds, function (d) {return d.Value;});
+var max = d3.max(ds, function (d) {return d.Value;});
+
+var scaleBubble = d3.scale.linear().
+domain([min, max]).
+range([10, 90]); // 95 because 100 was causing stuff to be missing
+
+var fill = d3.scale.category10();
+
+var nodes = [],labels = [],
+foci = [{ x: width / 2, y: height / 2 }];
+
+
+var svg = d3.select("#D3Chart").append("svg").
+attr("width", "100%").
+attr("height", height);
+//.attr("domflag", '');
+
+svg.append("svg:rect").
+attr("width", width).
+attr("height", height).
+style("fill", "#fff").
+style("stroke", "#000");
+
+
+var force = d3.layout.force().
+nodes(nodes).
+links([]).
+charge(-2000).
+chargeDistance(200).
+gravity(0).
+friction(0.8).
+size([width, height]).
+on("tick", tick);
+
+
+//var node = svg.selectAll("circle");
+var node = svg.selectAll("g");
+
+var counter = 0;
+
+function tick(e) {
+  var k = .1 * e.alpha;
+
+  nodes.forEach(function (o, i) {
+    o.y += (foci[0].y - o.y) * k;
+    o.x += (foci[0].x - o.x) * k;
+  });
+  node.attr("transform", function (d) {return "translate(" + d.x + "," + d.y + ")";});
+}
+
+var buildBubble = setInterval(function () {
+
+  //if (nodes.length > ds.length-1) { clearInterval(timer); return;}
+
+  var item = ds[counter];
+
+  nodes.push({ r: scaleBubble(item.Value), name: item.Label });
+
+  force.start();
+
+  node = node.data(nodes);
+
+  var n = node.enter().append("g").
+  attr("class", "node").
+  attr("transform", function (d) {return "translate(" + d.x + "," + d.y + ")";}).
+  style('cursor', 'pointer').
+  on('mousedown', function () {
+    var sel = d3.select(this);
+    sel.moveToFront();
+  }).
+  call(force.drag);
+
+  n.append("circle").
+  attr("r", function (d) {return d.r;})
+  //.style("fill", function(d) { return fill(0); })
+  .style("fill", "#fdaf27");
+  n.append("text").
+  text(function (d) {
+    return d.name;
+  }).
+  style("font-size", function (d) {
+    Math.min(d.r, (d.r - 8) / this.getComputedTextLength() * 16) + "px";
+  }).
+  attr("dy", ".35em");
+  counter++;
+}, 100);
+
+
+d3.selection.prototype.moveToFront = function () {
+  return this.each(function () {
+    this.parentNode.appendChild(this);
+  });
+};
+
+function resize() {
+  width = window.innerWidth;
+  force.size([width, height]);
+  force.start();
+}
+
+d3.select(window).on('resize', resize);
+          //# sourceURL=pen.js
+
+       </script>
+   </body>
+</html>

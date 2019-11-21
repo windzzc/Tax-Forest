@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" >
+  <title>Tax Knowledge Forest</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.6 -->
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link href="http://cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <!-- Ionicons -->
+  <link href="http://cdn.bootcss.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/AdminLTE.css">
+  <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+  <link rel="stylesheet" href="dist/css/skins/_all-skins.css">
+
+  <link rel="stylesheet" href="dist/css/my.css">
+
+<!-- <script type="text/javascript">ip = ffsfdsf；</script> -->
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+<style type="text/css">
+#cont{float:left;}
+#bt{color:#fff;}
+</style>
+
+
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+
+  <header class="main-header">
+    <!-- Logo -->
+    <a href="http://yotta.xjtushilei.com:888/homepage/" class="logo">
+      <!-- mini logo for sidebar mini 50x50 pixels -->
+      <span class="logo-mini" style="font-size: 12px">知识森林</span>
+      <!-- logo for regular state and mobile devices -->
+      <span class="logo-lg">知识森林构建</span>
+    </a>
+    <!-- Header Navbar: style can be found in header.less -->
+    <nav class="navbar navbar-static-top">
+      <!-- Sidebar toggle button-->
+   
+      <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+        <span class="sr-only">Toggle navigation</span>
+      </a>
+          <br>
+        <div class="col-md-1">
+        </div>
+          <div class="col-md-1"></div>
+        <div class="col-md-8">
+            <div class="btn-group btn-group-lg" role="group" aria-label="...">
+
+ <a href="../construct/pages/facet/index.html">
+<button class="btn  btn-primary"> 知识主题抽取及分面树构建</button> 
+<button class="btn  btn-primary"><em class="glyphicon glyphicon-arrow-right"></em></button> 
+</a>
+ <a href="../construct/pages/add/index.html">
+<button class="btn  btn-primary"> 碎片化知识采集及转配</button> 
+<button class="btn  btn-primary"><em class="glyphicon glyphicon-arrow-right"></em></button> 
+</a>
+<a href="../construct/pages/relationship/index.html">
+<button class="btn  btn-primary "> 知识关系挖掘</button> 
+<button class="btn  btn-primary "><em class="glyphicon glyphicon-arrow-right"></em></button> 
+</a>
+ <a href="../construct/pages/kg/index.html">
+<button class="btn  btn-primary btn6"> 知识森林</button> 
+</a>
+
+          </div>
+      </div>        
+        <div class="col-md-1"></div>
+        <div class="col-md-1"></div>
+      <br>
+
+      <div class="collapse navbar-collapse pull-right" id="navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="../../index.html" ><i class="fa fa-home" style="font-size: 19px"></i><strong> Tax Knowledge Forest</strong></a></li>
+        </ul>
+      </div>
+
+      
+    </nav>
+  </header>
+  <!-- Left side column. contains the logo and sidebar -->
+  <aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+      <!-- Sidebar user panel -->
+
+      <!-- /.search form -->
+      <!-- sidebar menu: : style can be found in sidebar.less -->
+      <ul class="sidebar-menu">
+        <li class="header">主要功能</li>
+        <li class="active">
+           <a href="javascript:resetCookie()"><i class="fa fa-location-arrow"></i> <span>导航</span>
+         
+           </a>
+ <div class="hei"> <i class="glyphicon glyphicon-arrow-down"></i></div>
+        </li>
+
+        <li>
+          <a href="pages/facet/index.html">
+            <i class="fa fa-asterisk"></i> <span>主题抽取和分面树构建</span>            
+          </a>
+          <div class="hei"> <i class="glyphicon glyphicon-arrow-down"></i></div>
+        </li>  
+
+        <li>
+          <a href="pages/add/index.html">
+            <i class="fa fa-hourglass-half"></i> <span>碎片化知识采集及装配</span>
+          </a>
+          <div class="hei"> <i class="glyphicon glyphicon-arrow-down"></i></div>
+        </li>
+  
+         <li>
+          <a href="pages/relationship/index.html">
+            <i class="fa fa-object-ungroup"></i> <span>知识关联挖掘</span>
+          </a>
+           <div class="hei"> <i class="glyphicon glyphicon-arrow-down"></i></div>
+        </li>
+
+        <li>
+          <a href="pages/kg/index.html">
+            <i class="fa  fa-tree"></i> <span>知识森林</span>
+          </a>
+
+        </li>
+      </ul>
+      
+    </section>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper" ng-app="myApp"  ng-controller="menu">
+    <!-- Content Header (Page header) -->
+
+  <div class="row">
+  <div class="col-md-12">  <h2>  &nbsp; &nbsp; <b > 导航</b></h2>
+
+    &nbsp; &nbsp; &nbsp; 
+    <span class="glyphicon glyphicon-tree-conifer"></span>
+            <span style="font-size: 16px; font-weight:bolder;">请选择知识森林已有分类：</span>
+  </div>
+  </div>
+
+ <br>
+
+    <div class="row">
+
+      <div class="col-sm-12 col-md-6">
+  
+          <div id="cont">
+               &nbsp; &nbsp; &nbsp; 
+             <select class="btn  btn-success btn-lg subjec"  lay-filter="test" id="selector">
+              <option value="">-- 请选择事务 --</option>
+            </select>
+            </div>
+            
+   &nbsp; &nbsp;
+
+        <input type="text"  list="idee"  class="btn-success btn-lg"  id="bt"  placeholder="请选择分类" />
+              <datalist id="idee">
+                   <option value="选择分类"  selected="selected"></option>
+              </datalist>
+            <span style="font-family: 微软黑体">目前含: <b><a ng-bind="subjectNum"></a></b> 个事务，<b><a ng-bind="classSum"></a></b> 种分类</span>
+
+      </div>
+
+
+
+
+      <div class="col-md-6"></div>
+
+        </div>
+
+
+ 
+<div class="row">
+  <div class="col-md-8">
+            <div id="graph" style="width: 800px; height:600px; margin:auto"></div>
+        </div>
+
+        <div class="col-md-3">
+<div><div class="ant-row showcase___3yiEC" style="margin-left: -8px; margin-right: -8px;"><div class="ant-col ant-col-xs-24 ant-col-sm-24 ant-col-md-24 ant-col-lg-24 ant-col-xl-24" style="padding-left: 8px; padding-right: 8px; margin-bottom: 30px;"><div class="ant-card"><div class="ant-card-head" style="padding-left: 0px;"><div class="ant-card-head-wrapper"><div class="ant-card-head-title"><div><div class="card-header___2dEvx green___25LdL"><h4><i aria-label="icon: database" class="anticon anticon-database"><svg viewBox="64 64 896 896" class="" data-icon="database" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false"><path d="M832 64H192c-17.7 0-32 14.3-32 32v832c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V96c0-17.7-14.3-32-32-32zm-600 72h560v208H232V136zm560 480H232V408h560v208zm0 272H232V680h560v208zM304 240a40 40 0 1 0 80 0 40 40 0 1 0-80 0zm0 272a40 40 0 1 0 80 0 40 40 0 1 0-80 0zm0 272a40 40 0 1 0 80 0 40 40 0 1 0-80 0z"></path></svg></i></h4></div><div class="card-content___3xYFW"><p class="category___1-1hx">事务</p><h3>21</h3></div></div></div></div></div><div class="ant-card-body" style="display: none;"></div></div></div><div class="ant-col ant-col-xs-24 ant-col-sm-24 ant-col-md-24 ant-col-lg-24 ant-col-xl-24" style="padding-left: 8px; padding-right: 8px; margin-bottom: 30px;"><div class="ant-card"><div class="ant-card-head" style="padding-left: 0px;"><div class="ant-card-head-wrapper"><div class="ant-card-head-title"><div><div class="card-header___2dEvx pink___26htT"><h4><i aria-label="icon: book" class="anticon anticon-book"><svg viewBox="64 64 896 896" class="" data-icon="book" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false"><path d="M832 64H192c-17.7 0-32 14.3-32 32v832c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V96c0-17.7-14.3-32-32-32zm-260 72h96v209.9L621.5 312 572 347.4V136zm220 752H232V136h280v296.9c0 3.3 1 6.6 3 9.3a15.9 15.9 0 0 0 22.3 3.7l83.8-59.9 81.4 59.4c2.7 2 6 3.1 9.4 3.1 8.8 0 16-7.2 16-16V136h64v752z"></path></svg></i></h4></div><div class="card-content___3xYFW"><p class="category___1-1hx">知识分类总数</p><h3>292</h3></div></div></div></div></div><div class="ant-card-body" style="display: none;"></div></div></div><div class="ant-col ant-col-xs-24 ant-col-sm-24 ant-col-md-24 ant-col-lg-24 ant-col-xl-24" style="padding-left: 8px; padding-right: 8px; margin-bottom: 30px;"><div class="ant-card"><div class="ant-card-head" style="padding-left: 0px;"><div class="ant-card-head-wrapper"><div class="ant-card-head-title"><div><div class="card-header___2dEvx blue___Q4eaZ"><h4><i aria-label="icon: read" class="anticon anticon-read"><svg viewBox="64 64 896 896" class="" data-icon="read" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false"><path d="M928 161H699.2c-49.1 0-97.1 14.1-138.4 40.7L512 233l-48.8-31.3A255.2 255.2 0 0 0 324.8 161H96c-17.7 0-32 14.3-32 32v568c0 17.7 14.3 32 32 32h228.8c49.1 0 97.1 14.1 138.4 40.7l44.4 28.6c1.3.8 2.8 1.3 4.3 1.3s3-.4 4.3-1.3l44.4-28.6C602 807.1 650.1 793 699.2 793H928c17.7 0 32-14.3 32-32V193c0-17.7-14.3-32-32-32zM324.8 721H136V233h188.8c35.4 0 69.8 10.1 99.5 29.2l48.8 31.3 6.9 4.5v462c-47.6-25.6-100.8-39-155.2-39zm563.2 0H699.2c-54.4 0-107.6 13.4-155.2 39V298l6.9-4.5 48.8-31.3c29.7-19.1 64.1-29.2 99.5-29.2H888v488zM396.9 361H211.1c-3.9 0-7.1 3.4-7.1 7.5v45c0 4.1 3.2 7.5 7.1 7.5h185.7c3.9 0 7.1-3.4 7.1-7.5v-45c.1-4.1-3.1-7.5-7-7.5zm223.1 7.5v45c0 4.1 3.2 7.5 7.1 7.5h185.7c3.9 0 7.1-3.4 7.1-7.5v-45c0-4.1-3.2-7.5-7.1-7.5H627.1c-3.9 0-7.1 3.4-7.1 7.5zM396.9 501H211.1c-3.9 0-7.1 3.4-7.1 7.5v45c0 4.1 3.2 7.5 7.1 7.5h185.7c3.9 0 7.1-3.4 7.1-7.5v-45c.1-4.1-3.1-7.5-7-7.5zm416 0H627.1c-3.9 0-7.1 3.4-7.1 7.5v45c0 4.1 3.2 7.5 7.1 7.5h185.7c3.9 0 7.1-3.4 7.1-7.5v-45c.1-4.1-3.1-7.5-7-7.5z"></path></svg></i></h4></div><div class="card-content___3xYFW"><p class="category___1-1hx">知识主题</p><h3>102613</h3></div></div></div></div></div><div class="ant-card-body" style="display: none;"></div></div></div><div class="ant-col ant-col-xs-24 ant-col-sm-24 ant-col-md-24 ant-col-lg-24 ant-col-xl-24" style="padding-left: 8px; padding-right: 8px; margin-bottom: 30px;"><div class="ant-card"><div class="ant-card-head" style="padding-left: 0px;"><div class="ant-card-head-wrapper"><div class="ant-card-head-title"><div><div class="card-header___2dEvx yellow___2B9yN"><h4><i aria-label="icon: profile" class="anticon anticon-profile"><svg viewBox="64 64 896 896" class="" data-icon="profile" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false"><path d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zm-40 728H184V184h656v656zM492 400h184c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H492c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8zm0 144h184c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H492c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8zm0 144h184c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H492c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8zM340 368a40 40 0 1 0 80 0 40 40 0 1 0-80 0zm0 144a40 40 0 1 0 80 0 40 40 0 1 0-80 0zm0 144a40 40 0 1 0 80 0 40 40 0 1 0-80 0z"></path></svg></i></h4></div><div class="card-content___3xYFW"><p class="category___1-1hx">知识碎片</p><h3>2888276</h3></div></div></div></div></div><div class="ant-card-body" style="display: none;"></div></div></div></div></div>
+
+
+
+        </div>
+         <div class="col-md-1"></div>
+
+</div>
+
+
+
+     
+<br>
+
+<div class="row" style="position:absolute;bottom:0;margin-right:2%;padding-left: 2%;">
+    <!-- <strong>Copyright &copy; 2019 <a href="http://labs.xjtudlc.com/labs/index.html">大数据算法与分析技术国家工程实验室</a>.</strong> All rights -->
+<div class="col-md-12">
+
+
+ <strong>Copyright © 2019 税务大数据小组. All rights
+    reserved.</strong> 
+
+    <b>Version 1.0.1</b> 
+
+</div>
+
+  
+
+
+
+</div>
+
+
+  <!-- /.content-wrapper -->
+<!--   <footer class="main-footer">
+    <div class="pull-right hidden-xs">
+      <b>Version</b> 1.0.1
+    </div>
+    <strong>Copyright &copy; 2019 智能网络与网络安全教育部重点实验室.</strong> All rights
+    reserved.
+  </footer> -->
+
+
+  <!-- /.control-sidebar -->
+  <!-- Add the sidebar's background. This div must be placed
+       immediately after the control sidebar -->
+  <div class="control-sidebar-bg"></div>
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery 2.2.3 -->
+<script src="plugins/jQuery/jquery-2.2.3.min.js"></script>
+
+<!-- Bootstrap 3.3.6 -->
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+<!-- AdminLTE App -->
+<script src="dist/js/app.min.js"></script>
+
+<script src="././plugins/echartjs/echarts.min.js"></script>
+    
+ <script src="././plugins/dataTool.min.js"></script>
+
+
+
+<!-- 个人的插件 -->
+<script type="text/javascript" src="../../config/ipconfig.js"></script>
+
+<script src="plugins/angularjs/angular.js"></script>
+<script src="plugins/angularjs/angular-animate.js"></script>
+<script src="plugins/angularjs/angular-sanitize.js"></script>
+<script src="././plugins/layui/layui.all.js"></script>
+
+<script src="dist/js/daohang.js"></script>
+<script>
+
+$(function(){
+
+
+       $.ajax({
+            type: "GET",
+            url: ip+"/domain/getDomainsGroupBySubject",
+           
+            headers:{'Content-Type': 'application/x-www-form-urlencoded'},        
+            success: function(response){
+                console.log(response['data']);
+                 data = response["data"];
+               $.each(response["data"],function(k,v){
+                 var op = "";
+                        op += "<option value='"+v.subjectName+"'>"+v.subjectName+"</option>";                      
+                      $(".subjec").append(op);
+
+               })
+             
+            },
+            error:function(XMLHttpRequest, textStatus, errorThrown){               
+                console.log(XMLHttpRequest);        
+             
+        }
+})
+
+
+
+      $('#cont select').change(() => {
+        var subject=$('#cont select').val();
+          setCookie("NowSubject", subject, "d900");
+        // if(!subject){
+        //   var subject="数学";
+        //   console.log(subject);
+        // }
+        // console.log(subject);
+
+
+
+
+
+
+         $.ajax({
+            type: "GET",
+            url: ip+"/domain/getDomainsBySubject",
+           data: $.param( {
+                subjectName:subject,      
+            }),
+            headers:{'Content-Type': 'application/x-www-form-urlencoded'},        
+            success: function(response){
+                  var domain=response['data'];
+                 console.log(domain);                 
+                  $.each(domain, function (n, value) {                        
+                        var trs = "";
+                        trs += "<option value='"+value.domainName+"'/>";
+                      
+                      $("#idee").append(trs);                       
+                     
+                    });              
+               },error:function(a){
+                console.log(a);
+               }
+               })
+           });
+      $("#bt").blur(function(){
+        var kc=$("#bt").val();
+        console.log(kc)
+         console.log(kc+111);
+         
+       if(kc != "" ){
+           $.ajax({
+            type: "GET",
+            url: ip+"/domain/getDomainByName",
+           data: $.param( {
+                domainName:kc,      
+            }),
+            headers:{'Content-Type': 'application/x-www-form-urlencoded'},        
+            success: function(response){
+                  var domain=response['data'];
+                    console.log(domain);     
+                  if(domain==null){                   
+                    //layer.alert("课程不存在，开始构建课程");
+          
+                        layer.confirm('请选择要构建的中文还是英文分类！', {
+                        title:'选择分类语言',
+                        btn: ['中文分类', '英文分类'] //可以无限个按钮
+                        ,btn3: function(index, layero){
+                          //按钮【按钮三】的回调
+                        }
+                      },function(index, layero){
+                        var a=true;
+                       setCookie("isChinese", a, "d900");
+                       setTimeout(function(){ location="/newyotta/module/construct1" },10);  
+                      //按钮【按钮一】的回调
+                      }, function(index){
+                        var a=false;
+                        setCookie("isChinese", a, "d900");
+                        setTimeout(function(){ location="/newyotta/module/construct1" },10);                     
+                        //按钮【按钮二】的回调
+                      });
+
+
+                   
+                 //   setTimeout(function(){ location="/module/construct1" }, 3000);
+
+                  }else{
+                    layer.msg("该分类已经构建完成");
+                  }                          
+                           
+               },error:function(c){
+                console.log(c);
+               }
+               })    
+      setCookie("NowClass", kc, "d900");       
+       }else{
+        layer.alert("请输入分类");
+       }
+
+
+
+      }) 
+
+
+
+
+})
+
+
+$('#selector').change(function (e) {
+  var subjectName=$("#selector").find("option:selected").val();
+
+var chart = echarts.init($('#graph').get(0));
+
+        // 课程名
+      
+   
+        // 获取gephi图
+        $.get('http://localhost:8020/subject/getSubjectGraphByName?subjectName=' + encodeURIComponent(subjectName), function (response) {
+            gexf = response.data;
+            drawGraph(gexf, subjectName, chart);
+        })
+
+        function drawGraph(gexf, subjectName, chart) {
+            let graph = echarts.dataTool.gexf.parse(gexf);
+            let categories = [];
+            let communityCount = 0;
+
+            graph.nodes.forEach(function (node) {
+                communityCount = Math.max(communityCount, node.attributes.modularity_class);
+                node.itemStyle = null;
+                node.value = node.symbolSize;
+                node.category = node.attributes.modularity_class;
+                node.label = {
+                    normal: {
+                        show: node.symbolSize > 0
+                    }
+                };
+                node.symbolSize = node.symbolSize / 3 + 6;
+            });
+            let communitySize = [];
+            for (let i = 0; i <= communityCount; i++) {
+                categories[i] = { name: '社团' + (i + 1) };
+                communitySize[i] = 0;
+            }
+            graph.nodes.forEach(function (node) {
+                let size = node.symbolSize;
+                let community = node.attributes.modularity_class;
+                for (let i = 0; i <= communityCount; i++) {
+                    if (community === i) {
+                        if (size > communitySize[i]) {
+                            categories[i] = { name: node.name };
+                        }
+                    }
+                }
+            });
+
+            let option = {
+                title: {
+                    text: subjectName,
+                    top: '90%',
+                    left: 'right'
+                },
+                tooltip: {},
+                legend: {
+                    top: 'top',
+                    data: categories.map(function (a) {
+                        return a.name;
+                    }),
+                    textStyle: {
+                        fontSize: 14
+                    }
+                },
+                animationDuration: 1500,
+                animationEasingUpdate: 'quinticInOut',
+                series: [
+                    {
+                        name: subjectName,
+                        type: 'graph',
+                        layout: 'none',
+                        data: graph.nodes,
+                        links: graph.links,
+                        top: '15%',
+                        edgeSymbol: ['circle', 'arrow'],
+                        edgeSymbolSize: [0.5, 7],
+                        categories: categories,
+                        focusNodeAdjacency: true,
+                        roam: true,
+                        label: {
+                            normal: {
+                                position: 'right'
+                            }
+                        },
+                        lineStyle: {
+                            normal: {
+                                curveness: 0.25,
+                                color: 'source',
+                                width: 3
+                            }
+                        }
+                    }
+                ]
+            };
+
+            // 点击事件
+            chart.on('click', function (param) {
+                switch (param.dataType) {
+                    // 结点类型
+                    case 'node':
+                        // 输出结点名称
+                        console.log(param.data.name);
+                        break;
+                    // 边类型
+                    case 'edge':
+                        // 输出边两侧的结点
+                        console.log(param.data.source);
+                        console.log(param.data.target);
+                }
+               
+            });
+
+            chart.setOption(option);
+        }
+
+
+
+
+
+    });
+
+
+
+
+function clearAllCookie() {
+        var keys = document.cookie.match(/[^ =;]+(?=\=)/g);
+        if(keys) {
+          for(var i = keys.length; i--;)
+            document.cookie = keys[i] + '=0;expires=' + new Date(0).toUTCString()
+        }
+      }
+
+
+</script>
+
+
+
+</body>
+</html>
